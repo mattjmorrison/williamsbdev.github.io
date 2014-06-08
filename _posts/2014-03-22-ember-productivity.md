@@ -31,17 +31,17 @@ Application". After getting my bearings with the name and flow of the routes, I
 can find any other piece of the application quickly. Below is a quick
 CoffeeScript example of an Ember Router:
 
-```coffeescript
+{% highlight coffeescript %}
   App.Router.map ->
     @resource 'users', {path: '/users/'}
     @resource 'shirt', {path: '/shirts/:size/'}
-```
+{% endhighlight %}
 
 Given the above example, I now want to know what information will be available
 to me when I navigate to the users route. Knowing only the name of the route
 "users", I will be able to quickly find the UsersRoute. See example below:
 
-```coffeescript
+{% highlight coffeescript %}
   App.UsersRoute = Ember.Route.extend
     model: ->
       App.Users.find()
@@ -49,7 +49,7 @@ to me when I navigate to the users route. Knowing only the name of the route
   App.ShirtRoute = Ember.Route.extend
     model: (params) ->
       App.Shirt.find(params.size)
-```
+{% endhighlight %}
 
 Now that I know that the data that will be available for each of the routes, I
 can go to the users.handlebars or shirt.handlebars templates and see how the
@@ -60,11 +60,11 @@ able to find the UsersController or the ShirtController. If there was nothing
 special going on with the views into the data, then Ember would provide the
 generic UsersController and ShirtController.
 
-```coffeescript
+{% highlight coffeescript %}
   App.UsersController = Ember.ArrayController.extend()
 
   App.ShirtController = Ember.ObjectController.extend()
-```
+{% endhighlight %}
 
 With all these naming conventions, it is easy on me to come into a project
 another team member has built and understand quickly what is happening in the
